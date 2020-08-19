@@ -18,10 +18,12 @@ export class ArticleComponent implements OnInit {
   }
   voteUp() {
     this.votes += 1
+    return false
   }
   // tslint:disable-next-line: typedef
   voteDown() {
     this.votes -= 1
+    return false
   }
 
   ngOnInit(): void {}
