@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core'
+import { Component, OnInit, HostBinding, Input } from '@angular/core'
 import { Article } from './article.model'
 @Component({
   selector: 'app-article',
@@ -7,18 +7,16 @@ import { Article } from './article.model'
 })
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row'
-  article: Article
+  @Input() article: Article
 
-  constructor() {
-    this.article = new Article('Rich', 'https://rich.com', 24)
-  }
+  constructor() {}
   voteUp() {
-    this.article.votes += 1
+    this.article.voteUp()
     return false
   }
   // tslint:disable-next-line: typedef
   voteDown() {
-    this.article.votes -= 1
+    this.article.voteDown()
     return false
   }
 
