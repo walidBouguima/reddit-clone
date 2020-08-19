@@ -13,7 +13,7 @@ export class AppComponent {
     this.articles = [
       new Article('Angular', 'http://angular.io', 123),
       new Article('React', 'http://react.io', 89),
-      new Article('Ember', 'http://ember.io', 55),
+      new Article('Ember', 'http://ember.io', 124),
       new Article('Vanilla', 'http://vanilla.io', 20),
     ]
   }
@@ -23,5 +23,9 @@ export class AppComponent {
     title.value = ''
     link.value = ''
     return false
+  }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes)
   }
 }
