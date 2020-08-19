@@ -2,10 +2,12 @@
   <h3 class="ui header">Add a link</h3>
   <div>
     <label for="title">Title: </label>
-    <input name="title" id="title">
+    <input name="title" id="title" #newtitle>
   </div>
   <div>
     <label for="link">Link: </label>
-    <input name="link" id="link">
+    <input name="link" id="link" #newlink>
   </div>
+  <button (click)="addArticle(newtitle, newlink)"
+    class="ui positive right floated button">Submit Link</button>
 </form>
