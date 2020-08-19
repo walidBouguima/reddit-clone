@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core'
-
+import { Article } from './article.model'
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -7,22 +7,18 @@ import { Component, OnInit, HostBinding } from '@angular/core'
 })
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row'
-  votes: number
-  title: string
-  link: string
+  article: Article
 
   constructor() {
-    this.title = 'Angular'
-    this.link = 'http://angular.io'
-    this.votes = 10
+    this.article = new Article('Rich', 'https://rich.com', 24)
   }
   voteUp() {
-    this.votes += 1
+    this.article.votes += 1
     return false
   }
   // tslint:disable-next-line: typedef
   voteDown() {
-    this.votes -= 1
+    this.article.votes -= 1
     return false
   }
 
